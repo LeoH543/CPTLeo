@@ -5,6 +5,11 @@ public class connect4{
 		Console con = new Console();
 		
 		int intChoice;
+		int intBoard;
+		String strPlayer1;
+		String strPlayer2;
+		int intWins1 = 0;
+		int intWins2 = 0;
 		
 		//Title
 		con.println("CONNECT 4");
@@ -22,6 +27,52 @@ public class connect4{
 		//Read Users Choice
 		con.println("Enter in your choice");
 		intChoice = con.readInt();
+		
+				// Enter in the Usernames first before the game starts
+		if(intChoice == 1){
+			con.clear();
+			con.println("PLAY GAME");
+			con.println("-------------");
+			
+			con.println("Enter Username for Player 1: ");
+			strPlayer1 = con.readLine();
+			
+			con.println("Enter Useranme for Player 2: ");
+			strPlayer2 = con.readLine();
+			
+			con.clear();
+			
+			con.println(strPlayer1 +  "-" + intWins1 + "          			CONNECT 4" + 									intWins2 + "-" + strPlayer2);
+	}		
+			
+			
+			
+	
+			
+			
+			
+			
+			
+			//The leaderboard for all wins for player 1 and player 2
+			if(intChoice == 2){
+				con.clear();
+				TextOutputFile leaderboard = new TextOutputFile("leaderboard.txt");
+					int intLeaderboardWins1;
+					int intLeaderboardWins2;
+					
+					intLeaderboardWins1 = intWins1;
+					intLeaderboardWins2 = intWins2;
+
+
+
+					leaderboard.println(intLeaderboardWins1);
+
+					leaderboard.println(intLeaderboardWins2);
+					
+					leaderboard.close();
+					
+		}
+				
 		
 	}
 }
