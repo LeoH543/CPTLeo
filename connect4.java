@@ -5,19 +5,24 @@ public class connect4{
 		Console con = new Console();
 		
 		int intChoice;
-		int intBoard;
+        String[][] strBoard = new String [6][7];
 		String strPlayer1;
 		String strPlayer2;
 		int intWins1 = 0;
 		int intWins2 = 0;
+		int intRow;
+		int intRows = 6;
+		int intCols = 7;
+		int intCol;
 		
 		//Title
 		con.println("CONNECT 4");
 		con.println("------------");
 		
+		
 		//Menu Options
 		con.println("Main Menu");
-		con.println("========");
+		con.println("=========");
 		con.println("(1) Play Game");
 		con.println("(2) Leaderboard");
 		con.println("(3) Choose Theme");
@@ -28,7 +33,8 @@ public class connect4{
 		con.println("Enter in your choice");
 		intChoice = con.readInt();
 		
-				// Enter in the Usernames first before the game starts
+		
+		// Enter in the Usernames first before the game starts
 		if(intChoice == 1){
 			con.clear();
 			con.println("PLAY GAME");
@@ -42,16 +48,29 @@ public class connect4{
 			
 			con.clear();
 			
-			con.println(strPlayer1 +  "-" + intWins1 + "          			CONNECT 4" + 									intWins2 + "-" + strPlayer2);
-	}		
-			
-			
-			
+			con.println(strPlayer1 + " (Wins: " + intWins1 + ")      CONNECT 4      " + strPlayer2 + " (Wins: " + intWins2 + ")");
+
+			     con.println("================================================");
+
+        // Column numbers on top of the board
+        con.println("   ");
+        for (intCol = 1; intCol <= intCols; intCol++) {
+            con.print(intCol + " ");
+        }
+			con.println();
+
+        // Draw board
+        for (intRow = 0; intRow < intRows; intRow++) {
+            con.println("|  ");
+            for (intCol = 0; intCol < intCols; intCol++) {
+                con.print(strBoard[intRow][intCol]);
+            }
+            con.println("|");
+        }
+
+        con.println("================================================");
 	
-			
-			
-			
-			
+	}		
 			
 			//The leaderboard for all wins for player 1 and player 2
 			if(intChoice == 2){
@@ -70,10 +89,11 @@ public class connect4{
 					leaderboard.println(intLeaderboardWins2);
 					
 					leaderboard.close();
-					
-		}
-				
-		
 	}
-}
-		
+	
+	}			
+	}
+				
+				
+	
+
